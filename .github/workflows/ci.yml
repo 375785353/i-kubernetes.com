@@ -11,6 +11,12 @@ jobs:
     steps:
       - name: Checkout master
         uses: actions/checkout@v1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-exclude
+      - run: pip install mkdocs-roamlinks-plugin
+      - run: mkdocs gh-deploy --force
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
