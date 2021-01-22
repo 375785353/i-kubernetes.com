@@ -15,3 +15,4 @@ jobs:
       - run: pip install mkdocs-exclude
       - run: pip install mkdocs-roamlinks-plugin
       - run: mkdocs gh-deploy --force
+      - run: echo "mkdocs.i-kubernetes.com" > CNAME
