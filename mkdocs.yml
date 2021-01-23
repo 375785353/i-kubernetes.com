@@ -2,7 +2,7 @@
 # mkdocs-material: https://squidfunk.github.io/mkdocs-material/
 # mkdocs: https://www.mkdocs.org/user-guide/configuration/
 
-site_name: kubernetes学习笔记
+site_name: 赵子良的个人博客
 theme:
   name: material
   #  favicon: attachment/portrait.png
