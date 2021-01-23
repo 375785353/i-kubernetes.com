@@ -51,8 +51,8 @@ plugins:
       regex:
         - '.*\.(tmp|bin|tar)$'
 nav:
-  - 介绍:
-    - mkdocs语法:
+  - mkdocs: 
+    - mkdocs介绍:
         - 1. 本文主题: mkdocs/index.md
         - 2. mkdocs-material介绍: mkdocs/view/what.md
         - 3. 提前说明: mkdocs/view/statement.md
@@ -130,13 +130,13 @@ nav:
             - 20.13. 列表-列表-引用: mkdocs/syntax/nest_list_list_quote.md
             - 20.14. 引用-引用-代码: mkdocs/syntax/nest_quote_quote_code.md
     - 附录:
-      - 1. 支持代码高亮的语言: appendix/pygments.md
-      - 2. emojione全名短名映射表: appendix/emoji_shortname.md
-      - 3. 添加百度统计: appendix/baidu_tongji.md
-      - 4. 配色: appendix/color.md
-      - 5. 模块介绍: appendix/module.md
-      - 6. mkdocs层级关系: appendix/level.md
-      - 7. 支持中文搜索: appendix/search.md
-      - 8. mkdocs.yml范例: appendix/yml.md
-      - 9. tab: appendix/tab.md
-      - 10. 关于chrome显示异常的问题: appendix/chrome.md
+      - 1. 支持代码高亮的语言: mkdocs/appendix/pygments.md
+      - 2. emojione全名短名映射表: mkdocs/appendix/emoji_shortname.md
+      - 3. 添加百度统计: mkdocs/appendix/baidu_tongji.md
+      - 4. 配色: mkdocs/appendix/color.md
+      - 5. 模块介绍: mkdocs/appendix/module.md
+      - 6. mkdocs层级关系: mkdocs/appendix/level.md
+      - 7. 支持中文搜索: mkdocs/appendix/search.md
+      - 8. mkdocs.yml范例: mkdocs/appendix/yml.md
+      - 9. tab: mkdocs/appendix/tab.md
+      - 10. 关于chrome显示异常的问题: mkdocs/appendix/chrome.md
