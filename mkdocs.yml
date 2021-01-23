@@ -52,11 +52,11 @@ plugins:
         - '.*\.(tmp|bin|tar)$'
 nav:
   - 介绍:
-      - 1. 本文主题: index.md
-      - 2. mkdocs-material介绍: view/what.md
-      - 3. 提前说明: view/statement.md
-      - 4. 最佳实践: view/bestpractice.md
-      - 5. 联系方式: view/contact.md
+      - 1. 本文主题: mkdocs/index.md
+      - 2. mkdocs-material介绍: mkdocs/view/what.md
+      - 3. 提前说明: mkdocs/view/statement.md
+      - 4. 最佳实践: mkdocs/view/bestpractice.md
+      - 5. 联系方式: mkdocs/view/contact.md
   - 安装:
       - 1. 本地环境搭建(含入门配置): install/local.md
       - 2. 发布至GitHub Pages: install/github-pages.md
