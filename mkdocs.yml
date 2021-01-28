@@ -53,7 +53,7 @@ plugins:
 nav:
   - prometheus:
     - prometheus基本使用:
-        - 1.dashboard模板: mkdocs/prometheus/dashboard.md
+        - 1.dashboard模板: prometheus/dashboard.md
   - mkdocs: 
     - mkdocs介绍:
         - 1. 本文主题: mkdocs/index.md
