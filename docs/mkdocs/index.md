@@ -1,4 +1,4 @@
-# 基于mkdocs-material搭建个人静态博客 - 小慢哥Linux
+# 基于mkdocs-material搭建个人静态博客 
 
 **本文主要包含以下3个部分**
 
