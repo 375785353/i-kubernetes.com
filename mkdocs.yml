@@ -61,7 +61,7 @@ nav:
         - 3. 提前说明: mkdocs/view/statement.md
         - 4. 最佳实践: mkdocs/view/bestpractice.md
         - 5. 联系方式: mkdocs/view/contact.md
-    - 安装:
+    - mkdocs安装:
         - 1. 本地环境搭建(含入门配置): mkdocs/install/local.md
         - 2. 发布至GitHub Pages: mkdocs/install/github-pages.md
         - 3. 发布至自己的HTTP Server: mkdocs/install/http-server.md
