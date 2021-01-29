@@ -52,8 +52,8 @@ plugins:
         - '.*\.(tmp|bin|tar)$'
 nav:
   - prometheus:
-    - 1.Prometheus入门: prometheus/prometheus.md
-    - 2.dashboard模板: prometheus/dashboard.md
+    - Prometheus简介: prometheus/prometheus.md
+    - dashboard模板: prometheus/dashboard.md
   - mkdocs: 
     - mkdocs介绍:
         - 1. 本文主题: mkdocs/index.md
