@@ -87,6 +87,7 @@ Instance：能够接收Prometheus Server数据Scrape操作的每个网络端点�
 Prometheus提供了内置的数据查询语言PromQL(全称Prometheus Query Language),支持用户进行实时的数据查询及聚合操作；
 
 PromQL支持处理两种向量，并内置提供了一组用于数据处理的函数
+
 - 即时向量： 最近一次的时间戳上跟踪的数据指标；
 - 时间范围向量： 指定时间范围内所有时间戳上的数据指标；
 ![vectors](img/vectors.png)
@@ -96,5 +97,6 @@ PromQL支持处理两种向量，并内置提供了一组用于数据处理的�
 抓取到异常值后，Prometheus支持通过"告警（Alert）"机制向用户发送反馈或警示，以触发用户能够及时采取应对措施；
 
 Prometheus Server仅负责生成告警指示，具体的告警行为由另一个独立的应用程序AlertManager负责；
+
 - 告警指示由Prometheus Server基于用户提供的"告警规则"周期性计算生成；
 - Alertmanager接收到Prometheus Server发来的告警指示后，基于用户定义的告警路由（route）向告警接收人（receivers）发送告警信息；
