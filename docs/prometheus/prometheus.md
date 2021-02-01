@@ -73,3 +73,28 @@ Prometheus使用4种方法来描述监视的指标：
     - 计算样本分位值：分位数有助于了解符合特定标准的数据个数；例如评估响应时长超过1秒钟的请求比例，若超过20%即发送告警等；
 
 - Summary：摘要，Histogram的扩展类型，但它是直接由被监测端自行聚合计算出分位数，并将计算结果响应给Prometheus Server的样本采集请求；因而，其分位数计算是由监控端完成；
+
+## **作业（job）和实例（Instance）**
+
+Instance：能够接收Prometheus Server数据Scrape操作的每个网络端点（endpoint），即为一个Instance（实例）；
+
+通常，具有类似功能的Instance的集合成为一个Job，例如一个MySQL主从复制集群中的所有MySQL进程；
+
+![job](img/job-instance.png)
+
+## **PromQL**
+
+Prometheus提供了内置的数据查询语言PromQL(全称Prometheus Query Language),支持用户进行实时的数据查询及聚合操作；
+
+PromQL支持处理两种向量，并内置提供了一组用于数据处理的函数
+- 即时向量： 最近一次的时间戳上跟踪的数据指标；
+- 时间范围向量： 指定时间范围内所有时间戳上的数据指标；
+![vectors](img/vectors.png)
+
+## **Alerts**
+
+抓取到异常值后，Prometheus支持通过"告警（Alert）"机制向用户发送反馈或警示，以触发用户能够及时采取应对措施；
+
+Prometheus Server仅负责生成告警指示，具体的告警行为由另一个独立的应用程序AlertManager负责；
+- 告警指示由Prometheus Server基于用户提供的"告警规则"周期性计算生成；
+- Alertmanager接收到Prometheus Server发来的告警指示后，基于用户定义的告警路由（route）向告警接收人（receivers）发送告警信息；
