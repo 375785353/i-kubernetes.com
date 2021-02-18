@@ -8,3 +8,4 @@
 | nginx-ingress-controller | 9614 |
 | blackbox-exporter | 9965 |
 | redis | 763 |
+
