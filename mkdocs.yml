@@ -63,6 +63,8 @@ nav:
   - prometheus:
     - Prometheus简介: prometheus/prometheus.md
     - dashboard模板: prometheus/dashboard.md
+  - kubernetes:
+    - 01.cobbler自动化部署: kubernetes/01.cobbler自动化部署.md
   - mkdocs: 
     - mkdocs介绍:
         - 1. 本文主题: mkdocs/index.md
