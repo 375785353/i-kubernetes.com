@@ -8,18 +8,18 @@
           "subdir": "grafana"
         }
       },
-      "version": "4204279da8d3d6317116ee161ac706fadbba9193",
-      "sum": "VUavLhri7lTnJ2V7F9lDlL+K96NwIhqqlxMtasYBs3Q="
+      "version": "014301fd5f71d8305a395b2fb437089a7b1a3999",
+      "sum": "RHtpk2c0CcliWyt6F4DIgwpi4cEfHADK7nAxIw6RTGs="
     },
     {
       "source": {
         "git": {
           "remote": "https://github.com/etcd-io/etcd.git",
-          "subdir": "contrib/mixin"
+          "subdir": "Documentation/etcd-mixin"
         }
       },
-      "version": "63cb3c97b7b1f09b09f6a62a65bb0fca821113ae",
-      "sum": "EgKKzxcW3ttt7gjPMX//DNTqNcn/0o2VAIaWJ/HSLEc="
+      "version": "ca866c02422ff3f3d1f0876898a30c33dd7bcccf",
+      "sum": "bLqTqEr0jky9zz5MV/7ucn6H5mph2NlXas0TVnGNB1Y="
     },
     {
       "source": {
@@ -28,8 +28,8 @@
           "subdir": "grafonnet"
         }
       },
-      "version": "b0d72d6ed0e9fcab83fc2dd954b3bd57113e768c",
-      "sum": "g2UC37YmOShdIFThAO99Uw89UO+H3sHt+y0ionv9/sA="
+      "version": "356bd73e4792ffe107725776ca8946895969c191",
+      "sum": "CSMZ3dJrpJpwvffie8BqcfrIVVwiKNqdPEN+1XWRBGU="
     },
     {
       "source": {
@@ -38,8 +38,8 @@
           "subdir": "grafana-builder"
         }
       },
-      "version": "2cef89cb717c8b596443ac5de0415d1ffdb42252",
-      "sum": "EmHrmBY8PbnV0BKXmVWvAEmax6eglRinKSyZbTmVWuc="
+      "version": "9c3fb8096e1f80e2f3a84566566906ff187f5a8c",
+      "sum": "9/eJqljTTtJeq9QRjabdKWL6yD8a7VzLmGKBK3ir77k="
     },
     {
       "source": {
@@ -59,8 +59,8 @@
           "subdir": ""
         }
       },
-      "version": "4a8e078147dbca51067521e6ac59c7b54d44d3bd",
-      "sum": "D5XwKXhd3c0e+1D5iRgUhStB0qpcT4dSCmytuGQa3+k="
+      "version": "1941868d86a7c37e5505a14e3d567bda90e80357",
+      "sum": "ypWxhZVFWF53k7qIkSpUvnI6IGyFBNKmgrzjNtLwMIM="
     },
     {
       "source": {
@@ -69,7 +69,7 @@
           "subdir": "lib/promgrafonnet"
         }
       },
-      "version": "4a8e078147dbca51067521e6ac59c7b54d44d3bd",
+      "version": "ead45674dba3c8712e422d99223453177aac6bf4",
       "sum": "zv7hXGui6BfHzE9wPatHI/AGZa4A2WKo6pq7ZdqBsps="
     },
     {
@@ -89,8 +89,8 @@
           "subdir": "jsonnet/kube-state-metrics-mixin"
         }
       },
-      "version": "72d6d3106861f992b7d6ecc0a88abe9b12ad5427",
-      "sum": "Yf8mNAHrV1YWzrdV8Ry5dJ8YblepTGw3C0Zp10XIYLo="
+      "version": "89aaf6c524ee891140c4c8f2a05b1b16f5847309",
+      "sum": "E1GGavnf9PCWBm4WVrxWnc0FIj72UcbcweqGioWrOdU="
     },
     {
       "source": {
@@ -99,7 +99,7 @@
           "subdir": "jsonnet/mixin"
         }
       },
-      "version": "788d4456425eaf8c1d613582995bdf7de02154b0",
+      "version": "d8b7d3766225908d0239fd0d78258892cd0fc384",
       "sum": "6reUygVmQrLEWQzTKcH8ceDbvM+2ztK3z2VBR2K2l+U="
     },
     {
@@ -109,8 +109,8 @@
           "subdir": "jsonnet/prometheus-operator"
         }
       },
-      "version": "5555f492df250168657b72bb8cb60bec071de71f",
-      "sum": "quzK9/gITldAfVGBkFUsLjQ3Y2F4NOJ2GQUjPSD8HHQ="
+      "version": "d8b7d3766225908d0239fd0d78258892cd0fc384",
+      "sum": "Nl+N/h76bzD9tZ8tx7tuNIKHwCIJ9zyOsAWplH8HvAE="
     },
     {
       "source": {
@@ -119,8 +119,8 @@
           "subdir": "doc/alertmanager-mixin"
         }
       },
-      "version": "3f46b62d75da4d68d2098388797e6a61fcc5e043",
-      "sum": "VP1vn/WTGLZaBgGhGMUO81qNTc/fnp5KtzVjcaxad6Q=",
+      "version": "193ebba04d1e70d971047e983a0b489112610460",
+      "sum": "QcftU7gjCQyj7B6M4YJeCAeaPd0kwxd4J4rolo7AnLE=",
       "name": "alertmanager"
     },
     {
@@ -130,7 +130,7 @@
           "subdir": "docs/node-mixin"
         }
       },
-      "version": "cfdd9dd0c983057df5e814e067fadbf8c7781559",
+      "version": "8b466360a35581e0301bd22918be7011cf4203c3",
       "sum": "rvyiD/yCB4BeYAWqYF53bP8c+aCUt2ipLHW2Ea8ELO8="
     },
     {
@@ -140,8 +140,8 @@
           "subdir": "documentation/prometheus-mixin"
         }
       },
-      "version": "e4487274853c587717006eeda8804e597d120340",
-      "sum": "6kUzElCBWZ5U/3cxEpHNMmoKKPubG45QxpmLu8PGg08=",
+      "version": "26d89b4b0776fe4cd5a3656dfa520f119a375273",
+      "sum": "1VRVMuxAEZ9vdGHFlndmG9iQzDD6AoIXrX80CDpGDaU=",
       "name": "prometheus"
     },
     {

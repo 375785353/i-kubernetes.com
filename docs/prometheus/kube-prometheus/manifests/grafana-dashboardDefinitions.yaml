@@ -1729,11 +1729,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-apiserver
     namespace: monitoring
 - apiVersion: v1
@@ -3600,11 +3595,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-cluster-total
     namespace: monitoring
 - apiVersion: v1
@@ -4740,11 +4730,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-controller-manager
     namespace: monitoring
 - apiVersion: v1
@@ -7311,11 +7296,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-k8s-resources-cluster
     namespace: monitoring
 - apiVersion: v1
@@ -9586,11 +9566,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-k8s-resources-namespace
     namespace: monitoring
 - apiVersion: v1
@@ -10553,11 +10528,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-k8s-resources-node
     namespace: monitoring
 - apiVersion: v1
@@ -12314,11 +12284,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-k8s-resources-pod
     namespace: monitoring
 - apiVersion: v1
@@ -14337,11 +14302,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-k8s-resources-workload
     namespace: monitoring
 - apiVersion: v1
@@ -16521,11 +16481,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-k8s-resources-workloads-namespace
     namespace: monitoring
 - apiVersion: v1
@@ -16702,7 +16657,7 @@ items:
                           "tableColumn": "",
                           "targets": [
                               {
-                                  "expr": "sum(kubelet_running_pods{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"}) OR sum(kubelet_running_pod_count{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
+                                  "expr": "sum(kubelet_running_pods{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "{{instance}}",
@@ -16786,7 +16741,7 @@ items:
                           "tableColumn": "",
                           "targets": [
                               {
-                                  "expr": "sum(kubelet_running_containers{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"}) OR sum(kubelet_running_container_count{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
+                                  "expr": "sum(kubelet_running_containers{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "{{instance}}",
@@ -19043,11 +18998,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-kubelet
     namespace: monitoring
 - apiVersion: v1
@@ -20496,11 +20446,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-namespace-by-pod
     namespace: monitoring
 - apiVersion: v1
@@ -22221,11 +22166,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-namespace-by-workload
     namespace: monitoring
 - apiVersion: v1
@@ -22303,7 +22243,7 @@ items:
                           "timeShift": null,
                           "title": "CPU Utilisation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -22389,7 +22329,7 @@ items:
                           "timeShift": null,
                           "title": "CPU Saturation (load1 per CPU)",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -22487,7 +22427,7 @@ items:
                           "timeShift": null,
                           "title": "Memory Utilisation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -22573,7 +22513,7 @@ items:
                           "timeShift": null,
                           "title": "Memory Saturation (Major Page Faults)",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -22687,7 +22627,7 @@ items:
                           "timeShift": null,
                           "title": "Net Utilisation (Bytes Receive/Transmit)",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -22789,7 +22729,7 @@ items:
                           "timeShift": null,
                           "title": "Net Saturation (Drops Receive/Transmit)",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -22887,7 +22827,7 @@ items:
                           "timeShift": null,
                           "title": "Disk IO Utilisation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -22973,7 +22913,7 @@ items:
                           "timeShift": null,
                           "title": "Disk IO Saturation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23071,7 +23011,7 @@ items:
                           "timeShift": null,
                           "title": "Disk Space Utilisation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23167,18 +23107,13 @@ items:
                   "30d"
               ]
           },
-          "timezone": "utc",
+          "timezone": "UTC",
           "title": "USE Method / Cluster",
-          "uid": "",
+          "uid": "3e97d1d02672cdd0861f4c97c64f89b2",
           "version": 0
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-node-cluster-rsrc-use
     namespace: monitoring
 - apiVersion: v1
@@ -23256,7 +23191,7 @@ items:
                           "timeShift": null,
                           "title": "CPU Utilisation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23342,7 +23277,7 @@ items:
                           "timeShift": null,
                           "title": "CPU Saturation (Load1 per CPU)",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23440,7 +23375,7 @@ items:
                           "timeShift": null,
                           "title": "Memory Utilisation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23526,7 +23461,7 @@ items:
                           "timeShift": null,
                           "title": "Memory Saturation (Major Page Faults)",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23640,7 +23575,7 @@ items:
                           "timeShift": null,
                           "title": "Net Utilisation (Bytes Receive/Transmit)",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23742,7 +23677,7 @@ items:
                           "timeShift": null,
                           "title": "Net Saturation (Drops Receive/Transmit)",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23840,7 +23775,7 @@ items:
                           "timeShift": null,
                           "title": "Disk IO Utilisation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -23926,7 +23861,7 @@ items:
                           "timeShift": null,
                           "title": "Disk IO Saturation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -24024,7 +23959,7 @@ items:
                           "timeShift": null,
                           "title": "Disk Space Utilisation",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -24147,18 +24082,13 @@ items:
                   "30d"
               ]
           },
-          "timezone": "utc",
+          "timezone": "UTC",
           "title": "USE Method / Node",
-          "uid": "",
+          "uid": "fac67cfbe174d3ef53eb473d73d9212f",
           "version": 0
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-node-rsrc-use
     namespace: monitoring
 - apiVersion: v1
@@ -24251,7 +24181,7 @@ items:
                           "timeShift": null,
                           "title": "CPU Usage",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -24365,7 +24295,7 @@ items:
                           "timeShift": null,
                           "title": "Load Average",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -24492,7 +24422,7 @@ items:
                           "timeShift": null,
                           "title": "Memory Usage",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -24595,6 +24525,9 @@ items:
                           ],
                           "thresholds": "80, 90",
                           "title": "Memory Usage",
+                          "tooltip": {
+                              "shared": false
+                          },
                           "type": "singlestat",
                           "valueFontSize": "80%",
                           "valueMaps": [
@@ -24703,7 +24636,7 @@ items:
                           "timeShift": null,
                           "title": "Disk I/O",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -24810,7 +24743,7 @@ items:
                           "timeShift": null,
                           "title": "Disk Space Usage",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -24917,7 +24850,7 @@ items:
                           "timeShift": null,
                           "title": "Network Received",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -25011,7 +24944,7 @@ items:
                           "timeShift": null,
                           "title": "Network Transmitted",
                           "tooltip": {
-                              "shared": true,
+                              "shared": false,
                               "sort": 0,
                               "value_type": "individual"
                           },
@@ -25134,17 +25067,13 @@ items:
                   "30d"
               ]
           },
-          "timezone": "browser",
+          "timezone": "UTC",
           "title": "Nodes",
+          "uid": "fa49a4706d07a042595b664c87fb33ea",
           "version": 0
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-nodes
     namespace: monitoring
 - apiVersion: v1
@@ -25337,7 +25266,7 @@ items:
                           "tableColumn": "",
                           "targets": [
                               {
-                                  "expr": "max without(instance,node) (\n(\n  kubelet_volume_stats_capacity_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n  -\n  kubelet_volume_stats_available_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n)\n/\nkubelet_volume_stats_capacity_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n* 100)\n",
+                                  "expr": "(\n  kubelet_volume_stats_capacity_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n  -\n  kubelet_volume_stats_available_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n)\n/\nkubelet_volume_stats_capacity_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n* 100\n",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "",
@@ -25534,7 +25463,7 @@ items:
                           "tableColumn": "",
                           "targets": [
                               {
-                                  "expr": "max without(instance,node) (\nkubelet_volume_stats_inodes_used{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n/\nkubelet_volume_stats_inodes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n* 100)\n",
+                                  "expr": "kubelet_volume_stats_inodes_used{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n/\nkubelet_volume_stats_inodes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"}\n* 100\n",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "",
@@ -25706,11 +25635,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-persistentvolumesusage
     namespace: monitoring
 - apiVersion: v1
@@ -26923,11 +26847,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-pod-total
     namespace: monitoring
 - apiVersion: v1
@@ -26953,7 +26872,7 @@ items:
           "links": [
 
           ],
-          "refresh": "60s",
+          "refresh": "",
           "rows": [
               {
                   "collapse": false,
@@ -27204,7 +27123,7 @@ items:
                           "steppedLine": false,
                           "targets": [
                               {
-                                  "expr": "rate(\n  prometheus_remote_storage_samples_in_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])\n- \n  ignoring(remote_name, url) group_right(instance) (rate(prometheus_remote_storage_succeeded_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m]) or rate(prometheus_remote_storage_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m]))\n- \n  (rate(prometheus_remote_storage_dropped_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m]) or rate(prometheus_remote_storage_samples_dropped_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m]))\n",
+                                  "expr": "rate(\n  prometheus_remote_storage_samples_in_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])\n- \n  ignoring(remote_name, url) group_right(instance) rate(prometheus_remote_storage_succeeded_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])\n- \n  rate(prometheus_remote_storage_dropped_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])\n",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "{{cluster}}:{{instance}} {{remote_name}}:{{url}}",
@@ -27789,7 +27708,7 @@ items:
                           "steppedLine": false,
                           "targets": [
                               {
-                                  "expr": "prometheus_remote_storage_pending_samples{cluster=~\"$cluster\", instance=~\"$instance\"} or prometheus_remote_storage_samples_pending{cluster=~\"$cluster\", instance=~\"$instance\"}",
+                                  "expr": "prometheus_remote_storage_pending_samples{cluster=~\"$cluster\", instance=~\"$instance\"}",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "{{cluster}}:{{instance}} {{remote_name}}:{{url}}",
@@ -28094,7 +28013,7 @@ items:
                           "steppedLine": false,
                           "targets": [
                               {
-                                  "expr": "rate(prometheus_remote_storage_dropped_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m]) or rate(prometheus_remote_storage_samples_dropped_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])",
+                                  "expr": "rate(prometheus_remote_storage_dropped_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "{{cluster}}:{{instance}} {{remote_name}}:{{url}}",
@@ -28187,7 +28106,7 @@ items:
                           "steppedLine": false,
                           "targets": [
                               {
-                                  "expr": "rate(prometheus_remote_storage_failed_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m]) or rate(prometheus_remote_storage_samples_failed_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])",
+                                  "expr": "rate(prometheus_remote_storage_failed_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "{{cluster}}:{{instance}} {{remote_name}}:{{url}}",
@@ -28280,7 +28199,7 @@ items:
                           "steppedLine": false,
                           "targets": [
                               {
-                                  "expr": "rate(prometheus_remote_storage_retried_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m]) or rate(prometheus_remote_storage_samples_retried_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])",
+                                  "expr": "rate(prometheus_remote_storage_retried_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])",
                                   "format": "time_series",
                                   "intervalFactor": 2,
                                   "legendFormat": "{{cluster}}:{{instance}} {{remote_name}}:{{url}}",
@@ -28433,7 +28352,7 @@ items:
           "schemaVersion": 14,
           "style": "dark",
           "tags": [
-              "prometheus-mixin"
+
           ],
           "templating": {
               "list": [
@@ -28577,16 +28496,11 @@ items:
               ]
           },
           "timezone": "browser",
-          "title": "Prometheus / Remote Write",
+          "title": "Prometheus Remote Write",
           "version": 0
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-prometheus-remote-write
     namespace: monitoring
 - apiVersion: v1
@@ -28605,7 +28519,7 @@ items:
           "links": [
 
           ],
-          "refresh": "60s",
+          "refresh": "10s",
           "rows": [
               {
                   "collapse": false,
@@ -29684,7 +29598,7 @@ items:
           "schemaVersion": 14,
           "style": "dark",
           "tags": [
-              "prometheus-mixin"
+
           ],
           "templating": {
               "list": [
@@ -29792,17 +29706,12 @@ items:
               ]
           },
           "timezone": "utc",
-          "title": "Prometheus / Overview",
+          "title": "Prometheus Overview",
           "uid": "",
           "version": 0
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-prometheus
     namespace: monitoring
 - apiVersion: v1
@@ -31018,11 +30927,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-proxy
     namespace: monitoring
 - apiVersion: v1
@@ -32081,11 +31985,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-scheduler
     namespace: monitoring
 - apiVersion: v1
@@ -32998,11 +32897,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-statefulset
     namespace: monitoring
 - apiVersion: v1
@@ -34425,11 +34319,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    labels:
-      app.kubernetes.io/component: grafana
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/part-of: kube-prometheus
-      app.kubernetes.io/version: 7.3.7
     name: grafana-dashboard-workload-total
     namespace: monitoring
 kind: ConfigMapList

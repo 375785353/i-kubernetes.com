@@ -1,4 +1,4 @@
-((import 'kube-prometheus/main.libsonnet') + {
+((import 'kube-prometheus/kube-prometheus.libsonnet') + {
    prometheus+: {
      prometheus+: {
        metadata+: {

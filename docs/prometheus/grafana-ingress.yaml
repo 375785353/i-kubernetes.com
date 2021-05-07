@@ -1,16 +1,14 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
   name: grafana
   namespace: monitoring
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
 spec:
-  rules:
-  - host: grafana.k8s.com
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: grafana  
-          servicePort: 3000
+  entryPoints:
+  - web
+  routes:
+  - match: Host(`grafana.i-kubernetes.com`)
+    kind: Rule
+    services:
+    - name: grafana
+      port: 3000

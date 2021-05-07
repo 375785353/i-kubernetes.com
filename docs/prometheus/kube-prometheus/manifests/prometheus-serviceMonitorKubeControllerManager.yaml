@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/name: kube-controller-manager
+    k8s-app: kube-controller-manager
   name: kube-controller-manager
   namespace: monitoring
 spec:
@@ -50,7 +50,7 @@ spec:
     scheme: https
     tlsConfig:
       insecureSkipVerify: true
-  jobLabel: app.kubernetes.io/name
+  jobLabel: k8s-app
   namespaceSelector:
     matchNames:
     - kube-system

@@ -1,3 +1,5 @@
 docs/helm
 docs/ceph
 docs/ingress-controller
+docs/prom
+docs/prometheus/kube-prometheus

@@ -2,10 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/component: prometheus
-    app.kubernetes.io/name: prometheus
-    app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 2.24.0
+    k8s-app: prometheus
   name: prometheus
   namespace: monitoring
 spec:
@@ -14,7 +11,4 @@ spec:
     port: web
   selector:
     matchLabels:
-      app.kubernetes.io/component: prometheus
-      app.kubernetes.io/name: prometheus
-      app.kubernetes.io/part-of: kube-prometheus
       prometheus: k8s

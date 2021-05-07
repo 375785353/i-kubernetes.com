@@ -1,13 +1,11 @@
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+: {
-      namespace: 'monitoring',
-    },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
     prometheus+:: {
       namespaces+: ['my-namespace', 'my-second-namespace'],
     },
   },
-  prometheus+: {
+  prometheus+:: {
     serviceMonitorMyNamespace: {
       apiVersion: 'monitoring.coreos.com/v1',
       kind: 'ServiceMonitor',

@@ -1,4 +1,4 @@
-((import 'kube-prometheus/main.libsonnet') + {
+((import 'kube-prometheus/kube-prometheus.libsonnet') + {
    _config+:: {
      alertmanager+: {
        config: importstr 'alertmanager-config.yaml',

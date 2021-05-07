@@ -14,12 +14,10 @@ local ingress(name, namespace, rules) = {
 };
 
 local kp =
-  (import 'kube-prometheus/main.libsonnet') +
+  (import 'kube-prometheus/kube-prometheus.libsonnet') +
   {
-    values+:: {
-      common+: {
-        namespace: 'monitoring',
-      },
+    _config+:: {
+      namespace: 'monitoring',
       grafana+:: {
         config+: {
           sections+: {
@@ -49,7 +47,7 @@ local kp =
     ingress+:: {
       'alertmanager-main': ingress(
         'alertmanager-main',
-        $.values.common.namespace,
+        $._config.namespace,
         [{
           host: 'alertmanager.example.com',
           http: {
@@ -66,7 +64,7 @@ local kp =
       ),
       grafana: ingress(
         'grafana',
-        $.values.common.namespace,
+        $._config.namespace,
         [{
           host: 'grafana.example.com',
           http: {
@@ -83,7 +81,7 @@ local kp =
       ),
       'prometheus-k8s': ingress(
         'prometheus-k8s',
-        $.values.common.namespace,
+        $._config.namespace,
         [{
           host: 'prometheus.example.com',
           http: {
@@ -107,7 +105,7 @@ local kp =
         kind: 'Secret',
         metadata: {
           name: 'basic-auth',
-          namespace: $.values.common.namespace,
+          namespace: $._config.namespace,
         },
         data: { auth: std.base64(importstr 'auth') },
         type: 'Opaque',

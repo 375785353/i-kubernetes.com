@@ -1,25 +1,19 @@
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+: {
-      namespace: 'monitoring',
-    },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
   },
-  prometheus+: {
-    prometheusRule+: {
-      spec+: {
-        groups+: [
+  prometheusRules+:: {
+    groups+: [
+      {
+        name: 'example-group',
+        rules: [
           {
-            name: 'example-group',
-            rules: [
-              {
-                record: 'some_recording_rule_name',
-                expr: 'vector(1)',
-              },
-            ],
+            record: 'some_recording_rule_name',
+            expr: 'vector(1)',
           },
         ],
       },
-    },
+    ],
   },
 };
 

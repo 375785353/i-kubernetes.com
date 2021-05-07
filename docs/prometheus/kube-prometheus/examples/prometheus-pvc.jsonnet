@@ -1,16 +1,14 @@
 local kp =
-  (import 'kube-prometheus/main.libsonnet') +
+  (import 'kube-prometheus/kube-prometheus.libsonnet') +
   // Uncomment the following imports to enable its patches
-  // (import 'kube-prometheus/addons/anti-affinity.libsonnet') +
-  // (import 'kube-prometheus/addons/managed-cluster.libsonnet') +
-  // (import 'kube-prometheus/addons/node-ports.libsonnet') +
-  // (import 'kube-prometheus/addons/static-etcd.libsonnet') +
-  // (import 'kube-prometheus/addons/thanos-sidecar.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-anti-affinity.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-managed-cluster.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-node-ports.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-static-etcd.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-thanos-sidecar.libsonnet') +
   {
-    values+:: {
-      common+: {
-        namespace: 'monitoring',
-      },
+    _config+:: {
+      namespace: 'monitoring',
     },
 
     prometheus+:: {

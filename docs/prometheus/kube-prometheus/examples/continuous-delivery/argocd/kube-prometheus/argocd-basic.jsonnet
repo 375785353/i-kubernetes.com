@@ -1,8 +1,7 @@
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+: {
-      namespace: 'monitoring',
-    },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+
+  _config+:: {
+    namespace: 'monitoring',
   },
 };
 

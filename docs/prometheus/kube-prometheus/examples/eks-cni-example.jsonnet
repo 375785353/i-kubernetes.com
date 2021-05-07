@@ -1,26 +1,20 @@
-local kp = (import 'kube-prometheus/main.libsonnet') +
-           (import 'kube-prometheus/platforms/eks.libsonnet') + {
-  values+:: {
-    common+: {
-      namespace: 'monitoring',
-    },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') +
+           (import 'kube-prometheus/kube-prometheus-eks.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
   },
-  prometheus+: {
-    prometheusRuleEksCNI+: {
-      spec+: {
-        groups+: [
+  prometheusRules+:: {
+    groups+: [
+      {
+        name: 'example-group',
+        rules: [
           {
-            name: 'example-group',
-            rules: [
-              {
-                record: 'aws_eks_available_ip',
-                expr: 'sum by(instance) (awscni_total_ip_addresses) - sum by(instance) (awscni_assigned_ip_addresses) < 10',
-              },
-            ],
+            record: 'aws_eks_available_ip',
+            expr: 'sum by(instance) (awscni_total_ip_addresses) - sum by(instance) (awscni_assigned_ip_addresses) < 10',
           },
         ],
       },
-    },
+    ],
   },
 };
 

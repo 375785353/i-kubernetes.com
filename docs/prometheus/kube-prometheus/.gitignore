@@ -3,4 +3,3 @@ minikube-manifests/
 vendor/
 ./auth
 .swp
-crdschemas/

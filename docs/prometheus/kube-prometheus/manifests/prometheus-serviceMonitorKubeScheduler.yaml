@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/name: kube-scheduler
+    k8s-app: kube-scheduler
   name: kube-scheduler
   namespace: monitoring
 spec:
@@ -13,7 +13,7 @@ spec:
     scheme: https
     tlsConfig:
       insecureSkipVerify: true
-  jobLabel: app.kubernetes.io/name
+  jobLabel: k8s-app
   namespaceSelector:
     matchNames:
     - kube-system

@@ -11,40 +11,34 @@ As a basis, all examples in this guide are based on the base example of the kube
 [embedmd]:# (../example.jsonnet)
 ```jsonnet
 local kp =
-  (import 'kube-prometheus/main.libsonnet') +
+  (import 'kube-prometheus/kube-prometheus.libsonnet') +
   // Uncomment the following imports to enable its patches
-  // (import 'kube-prometheus/addons/anti-affinity.libsonnet') +
-  // (import 'kube-prometheus/addons/managed-cluster.libsonnet') +
-  // (import 'kube-prometheus/addons/node-ports.libsonnet') +
-  // (import 'kube-prometheus/addons/static-etcd.libsonnet') +
-  // (import 'kube-prometheus/addons/thanos-sidecar.libsonnet') +
-  // (import 'kube-prometheus/addons/custom-metrics.libsonnet') +
-  // (import 'kube-prometheus/addons/external-metrics.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-anti-affinity.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-managed-cluster.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-node-ports.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-static-etcd.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-thanos-sidecar.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-custom-metrics.libsonnet') +
+  // (import 'kube-prometheus/kube-prometheus-external-metrics.libsonnet') +
   {
-    values+:: {
-      common+: {
-        namespace: 'monitoring',
-      },
+    _config+:: {
+      namespace: 'monitoring',
     },
   };
 
-{ 'setup/0namespace-namespace': kp.kubePrometheus.namespace } +
+{ ['setup/0namespace-' + name]: kp.kubePrometheus[name] for name in std.objectFields(kp.kubePrometheus) } +
 {
   ['setup/prometheus-operator-' + name]: kp.prometheusOperator[name]
-  for name in std.filter((function(name) name != 'serviceMonitor' && name != 'prometheusRule'), std.objectFields(kp.prometheusOperator))
+  for name in std.filter((function(name) name != 'serviceMonitor'), std.objectFields(kp.prometheusOperator))
 } +
-// serviceMonitor and prometheusRule are separated so that they can be created after the CRDs are ready
+// serviceMonitor is separated so that it can be created after the CRDs are ready
 { 'prometheus-operator-serviceMonitor': kp.prometheusOperator.serviceMonitor } +
-{ 'prometheus-operator-prometheusRule': kp.prometheusOperator.prometheusRule } +
-{ 'kube-prometheus-prometheusRule': kp.kubePrometheus.prometheusRule } +
-{ ['alertmanager-' + name]: kp.alertmanager[name] for name in std.objectFields(kp.alertmanager) } +
-{ ['blackbox-exporter-' + name]: kp.blackboxExporter[name] for name in std.objectFields(kp.blackboxExporter) } +
-{ ['grafana-' + name]: kp.grafana[name] for name in std.objectFields(kp.grafana) } +
-{ ['kube-state-metrics-' + name]: kp.kubeStateMetrics[name] for name in std.objectFields(kp.kubeStateMetrics) } +
-{ ['kubernetes-' + name]: kp.kubernetesMixin[name] for name in std.objectFields(kp.kubernetesMixin) }
 { ['node-exporter-' + name]: kp.nodeExporter[name] for name in std.objectFields(kp.nodeExporter) } +
+{ ['kube-state-metrics-' + name]: kp.kubeStateMetrics[name] for name in std.objectFields(kp.kubeStateMetrics) } +
+{ ['alertmanager-' + name]: kp.alertmanager[name] for name in std.objectFields(kp.alertmanager) } +
 { ['prometheus-' + name]: kp.prometheus[name] for name in std.objectFields(kp.prometheus) } +
-{ ['prometheus-adapter-' + name]: kp.prometheusAdapter[name] for name in std.objectFields(kp.prometheusAdapter) }
+{ ['prometheus-adapter-' + name]: kp.prometheusAdapter[name] for name in std.objectFields(kp.prometheusAdapter) } +
+{ ['grafana-' + name]: kp.grafana[name] for name in std.objectFields(kp.grafana) }
 ```
 
 ## Prometheus rules
@@ -59,34 +53,28 @@ The format is exactly the Prometheus format, so there should be no changes neces
 
 [embedmd]:# (../examples/prometheus-additional-alert-rule-example.jsonnet)
 ```jsonnet
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+: {
-      namespace: 'monitoring',
-    },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
   },
-  prometheus+: {
-    prometheusRule+: {
-      spec+: {
-        groups+: [
+  prometheusAlerts+:: {
+    groups+: [
+      {
+        name: 'example-group',
+        rules: [
           {
-            name: 'example-group',
-            rules: [
-              {
-                alert: 'Watchdog',
-                expr: 'vector(1)',
-                labels: {
-                  severity: 'none',
-                },
-                annotations: {
-                  description: 'This is a Watchdog meant to ensure that the entire alerting pipeline is functional.',
-                },
-              },
-            ],
+            alert: 'Watchdog',
+            expr: 'vector(1)',
+            labels: {
+              severity: 'none',
+            },
+            annotations: {
+              description: 'This is a Watchdog meant to ensure that the entire alerting pipeline is functional.',
+            },
           },
         ],
       },
-    },
+    ],
   },
 };
 
@@ -108,28 +96,22 @@ In order to add a recording rule, simply do the same with the `prometheusRules` 
 
 [embedmd]:# (../examples/prometheus-additional-recording-rule-example.jsonnet)
 ```jsonnet
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+: {
-      namespace: 'monitoring',
-    },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
   },
-  prometheus+: {
-    prometheusRule+: {
-      spec+: {
-        groups+: [
+  prometheusRules+:: {
+    groups+: [
+      {
+        name: 'example-group',
+        rules: [
           {
-            name: 'example-group',
-            rules: [
-              {
-                record: 'some_recording_rule_name',
-                expr: 'vector(1)',
-              },
-            ],
+            record: 'some_recording_rule_name',
+            expr: 'vector(1)',
           },
         ],
       },
-    },
+    ],
   },
 };
 
@@ -161,18 +143,12 @@ Then import it in jsonnet:
 
 [embedmd]:# (../examples/prometheus-additional-rendered-rule-example.jsonnet)
 ```jsonnet
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+: {
-      namespace: 'monitoring',
-    },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
   },
-  prometheus+: {
-    prometheusRule+: {
-      spec+: {
-        groups+: (import 'existingrule.json').groups,
-      },
-    },
+  prometheusAlerts+:: {
+    groups+: (import 'existingrule.json').groups,
   },
 };
 
@@ -273,37 +249,35 @@ local prometheus = grafana.prometheus;
 local template = grafana.template;
 local graphPanel = grafana.graphPanel;
 
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+:: {
-      namespace: 'monitoring',
-    },
-    grafana+: {
-      dashboards+:: {
-        'my-dashboard.json':
-          dashboard.new('My Dashboard')
-          .addTemplate(
-            {
-              current: {
-                text: 'Prometheus',
-                value: 'Prometheus',
-              },
-              hide: 0,
-              label: null,
-              name: 'datasource',
-              options: [],
-              query: 'prometheus',
-              refresh: 1,
-              regex: '',
-              type: 'datasource',
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
+  },
+  grafana+:: {
+    dashboards+:: {
+      'my-dashboard.json':
+        dashboard.new('My Dashboard')
+        .addTemplate(
+          {
+            current: {
+              text: 'Prometheus',
+              value: 'Prometheus',
             },
-          )
-          .addRow(
-            row.new()
-            .addPanel(graphPanel.new('My Panel', span=6, datasource='$datasource')
-                      .addTarget(prometheus.target('vector(1)')))
-          ),
-      },
+            hide: 0,
+            label: null,
+            name: 'datasource',
+            options: [],
+            query: 'prometheus',
+            refresh: 1,
+            regex: '',
+            type: 'datasource',
+          },
+        )
+        .addRow(
+          row.new()
+          .addPanel(graphPanel.new('My Panel', span=6, datasource='$datasource')
+                    .addTarget(prometheus.target('vector(1)')))
+        ),
     },
   },
 };
@@ -323,15 +297,16 @@ As jsonnet is a superset of json, the jsonnet `import` function can be used to i
 
 [embedmd]:# (../examples/grafana-additional-rendered-dashboard-example.jsonnet)
 ```jsonnet
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+:: {
-      namespace: 'monitoring',
-    },
-    grafana+: {
-      dashboards+:: {  // use this method to import your dashboards to Grafana
-        'my-dashboard.json': (import 'example-grafana-dashboard.json'),
-      },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
+  },
+  grafanaDashboards+:: {  //  monitoring-mixin compatibility
+    'my-dashboard.json': (import 'example-grafana-dashboard.json'),
+  },
+  grafana+:: {
+    dashboards+:: {  // use this method to import your dashboards to Grafana
+      'my-dashboard.json': (import 'example-grafana-dashboard.json'),
     },
   },
 };
@@ -348,15 +323,13 @@ local kp = (import 'kube-prometheus/main.libsonnet') + {
 In case you have lots of json dashboard exported out from grafana UI the above approach is going to take lots of time to improve performance we can use `rawDashboards` field and provide it's value as json string by using `importstr`
 [embedmd]:# (../examples/grafana-additional-rendered-dashboard-example-2.jsonnet)
 ```jsonnet
-local kp = (import 'kube-prometheus/main.libsonnet') + {
-  values+:: {
-    common+:: {
-      namespace: 'monitoring',
-    },
-    grafana+: {
-      rawDashboards+:: {
-        'my-dashboard.json': (importstr 'example-grafana-dashboard.json'),
-      },
+local kp = (import 'kube-prometheus/kube-prometheus.libsonnet') + {
+  _config+:: {
+    namespace: 'monitoring',
+  },
+  grafana+:: {
+    rawDashboards+:: {
+      'my-dashboard.json': (importstr 'example-grafana-dashboard.json'),
     },
   },
 };
