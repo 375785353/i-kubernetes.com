@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: alertmanager
+  namespace: monitoring
+spec:
+  entryPoints:
+  - web
+  routes:
+  - match: Host(`alert.i-kubernetes.com`)
+    kind: Rule
+    services:
+    - name: alertmanager-main
+      port: 9093

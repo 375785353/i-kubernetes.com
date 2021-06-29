@@ -1,0 +1,11 @@
+templates:
+  - /etc/prometheus-webhook-dingtalk/templates/legacy/template.tmpl
+targets:
+  webhook1:
+    url: https://oapi.dingtalk.com/robot/send?access_token=d2cac79bb54d8e63078755625090dc1c2eb0edccd0e06d05af122e2106452e2d
+    secret: SEC59864c43ece5201f0c0ce04187e3f3579858ae6ad9991001444f4510a939d198
+    message:
+      # Use legacy template
+      text: '{{ template "ding.link.content" . }}'
+    mention:
+      mobiles: ['18321432059']

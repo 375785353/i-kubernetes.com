@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook-dingtalk
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: dingtalk
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dingtalk
+    spec:
+      containers:
+        - name: dingtalk
+          image: timonwong/prometheus-webhook-dingtalk:v1.4.0
+          imagePullPolicy: IfNotPresent
+          args:
+           - '--web.enable-ui'
+           - '--web.enable-lifecycle'
+           - '--config.file=/etc/prometheus-webhook-dingtalk/templates/legacy/config.yml'
+          ports:
+          - containerPort: 8060
+            protocol: TCP
+          volumeMounts:
+          - mountPath: "/etc/prometheus-webhook-dingtalk/templates/legacy"
+            name: config
+          resources:
+            requests:
+              cpu: 50m
+              memory: 100Mi
+            limits:
+              cpu: 50m
+              memory: 100Mi
+      volumes:
+        - name: config
+          configMap:
+            name: alertmanager-webhook-dingtalk
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webhook-dingtalk
+  namespace: monitoring
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8060
+  selector:
+    app: dingtalk
+  sessionAffinity: None
