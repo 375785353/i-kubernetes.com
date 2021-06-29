@@ -47,3 +47,4 @@ This template will convert roam/obsidian/foam like links to web support links
 | `[[#Heading identifiers]]` | `[Heading identifiers in HTML](#heading-identifiers-in-html)`
 | ` [[Git Flow#Heading]]` | `[Git Flow](../software/git_flow.md#heading)` |
 
+
