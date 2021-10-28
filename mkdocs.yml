@@ -6,6 +6,9 @@ site_name: kubernetes学习之路
 theme:
   name: material
   #  favicon: attachment/portrait.png
+  font:
+  text: Roboto
+  code: Roboto Mono
   language: zh # 中文，解决中文搜索问题
   features:
     - navigation.expand
