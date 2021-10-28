@@ -1,0 +1,12 @@
+
+{{ define "ding.link.content" }}
+{{ if gt (len .Alerts.Firing) 0 -}}
+告警列表:
+-----------
+{{ template "__text_alert_list" .Alerts.Firing }}
+{{- end }}
+{{ if gt (len .Alerts.Resolved) 0 -}}
+恢复列表:
+{{ template "__text_resolve_list" .Alerts.Resolved }}
+{{- end }}
+{{- end }}
